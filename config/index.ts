@@ -9,7 +9,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport<'webpack5'> = {
     projectName: 'YouYouTool',
     date: '2025-9-12',
-    designWidth: 750,
+    designWidth: 375,
     deviceRatio: {
       640: 2.34 / 2,
       750: 1,

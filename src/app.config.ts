@@ -1,7 +1,10 @@
 export default {
   pages: [
     'pages/home/index',
-    'pages/more/index'
+    'pages/discover/index',
+    'pages/favorite/index',
+    'pages/tool/index',
+    'pages/setting/index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -23,10 +26,28 @@ export default {
         selectedIconPath: 'assets/tabbar/home_active.png'
       },
       {
-        pagePath: 'pages/more/index',
-        text: '更多',
-        iconPath: 'assets/tabbar/more.png',
-        selectedIconPath: 'assets/tabbar/more_active.png'
+        pagePath: 'pages/discover/index',
+        text: '发现',
+        iconPath: 'assets/tabbar/discover.png',
+        selectedIconPath: 'assets/tabbar/discover_active.png'
+      },
+      {
+        pagePath: 'pages/favorite/index',
+        text: '常用',
+        iconPath: 'assets/tabbar/favorite.png',
+        selectedIconPath: 'assets/tabbar/favorite_active.png'
+      },
+      {
+        pagePath: 'pages/tool/index',
+        text: '工具',
+        iconPath: 'assets/tabbar/tool.png',
+        selectedIconPath: 'assets/tabbar/tool_active.png'
+      },
+      {
+        pagePath: 'pages/setting/index',
+        text: '设置',
+        iconPath: 'assets/tabbar/setting.png',
+        selectedIconPath: 'assets/tabbar/setting_active.png'
       }
     ]
   }

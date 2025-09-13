@@ -9,11 +9,15 @@
     >
       <image
         class="tab-image"
-        :src="tabStore.currentTab === index ? item.selectedIconPath : item.iconPath"
+        :src="
+          tabStore.currentTab === index ? item.selectedIconPath : item.iconPath
+        "
       />
       <view
         class="tab-text"
-        :style="{ color: tabStore.currentTab === index ? selectedColor : color }"
+        :style="{
+          color: tabStore.currentTab === index ? selectedColor : color,
+        }"
         >{{ item.text }}</view
       >
     </view>
@@ -26,8 +30,8 @@ import { useTabBarStore } from "@/stores/tabbar";
 
 const tabStore = useTabBarStore();
 
-const color = "#000000";
-const selectedColor = "#DC143C";
+const color = "#333333";
+const selectedColor = "#000000";
 const list = [
   {
     pagePath: "/pages/home/index",
@@ -36,10 +40,28 @@ const list = [
     text: "首页",
   },
   {
-    pagePath: "/pages/more/index",
-    selectedIconPath: "/assets/tabbar/more_active.png",
-    iconPath: "/assets/tabbar/more.png",
-    text: "更多",
+    pagePath: "/pages/discover/index",
+    text: "发现",
+    iconPath: "/assets/tabbar/discover.png",
+    selectedIconPath: "/assets/tabbar/discover_active.png",
+  },
+  {
+    pagePath: "/pages/favorite/index",
+    text: "常用",
+    iconPath: "/assets/tabbar/favorite.png",
+    selectedIconPath: "/assets/tabbar/favorite_active.png",
+  },
+  {
+    pagePath: "/pages/tool/index",
+    text: "工具",
+    iconPath: "/assets/tabbar/tool.png",
+    selectedIconPath: "/assets/tabbar/tool_active.png",
+  },
+  {
+    pagePath: "/pages/setting/index",
+    text: "设置",
+    iconPath: "/assets/tabbar/setting.png",
+    selectedIconPath: "/assets/tabbar/setting_active.png",
   },
 ];
 
@@ -54,7 +76,7 @@ function switchTab(index: number, url: string) {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: 100px;
+  height: 60px;
   background: gray;
   display: flex;
 }
@@ -70,7 +92,7 @@ function switchTab(index: number, url: string) {
 }
 
 .tab-bar-item {
-  width: 50%;
+  width: 20%;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -80,10 +102,11 @@ function switchTab(index: number, url: string) {
 
 .tab-bar-item .tab-image {
   display: block;
-  width: 50px;
+  width: 24px;
+  height: 24px;
 }
 
 .tab-bar-item .tab-text {
-  font-size: 30px;
+  font-size: 10px;
 }
 </style>
