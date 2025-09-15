@@ -5,21 +5,32 @@
       v-for="(item, index) in list"
       :key="index"
       class="tab-bar-item"
+      :class="{ 'middle-item': item.isMiddle }"
       @tap="switchTab(index, item.pagePath)"
     >
-      <image
-        class="tab-image"
-        :src="
-          tabStore.currentTab === index ? item.selectedIconPath : item.iconPath
-        "
-      />
-      <view
-        class="tab-text"
-        :style="{
-          color: tabStore.currentTab === index ? selectedColor : color,
-        }"
-        >{{ item.text }}</view
-      >
+      <template v-if="item.isMiddle">
+        <image
+          class="middle-image"
+          :src="tabStore === index ? item.selectedIconPath : item.iconPath"
+        ></image>
+      </template>
+      <template v-else>
+        <image
+          class="tab-image"
+          :src="
+            tabStore.currentTab === index
+              ? item.selectedIconPath
+              : item.iconPath
+          "
+        />
+        <view
+          class="tab-text"
+          :style="{
+            color: tabStore.currentTab === index ? selectedColor : color,
+          }"
+          >{{ item.text }}</view
+        >
+      </template>
     </view>
   </view>
 </template>
@@ -50,6 +61,7 @@ const list = [
     text: "常用",
     iconPath: "/assets/tabbar/favorite.png",
     selectedIconPath: "/assets/tabbar/favorite_active.png",
+    isMiddle: true,
   },
   {
     pagePath: "/pages/tool/index",
@@ -77,36 +89,38 @@ function switchTab(index: number, url: string) {
   bottom: 0;
   width: 100vw;
   height: 60px;
-  background: gray;
+  background: #fff;
   display: flex;
 }
 
-.tab-bar-border {
-  background-color: rgba(0, 0, 0, 0.33);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 1px;
-  transform: scaleY(0.5);
-}
-
 .tab-bar-item {
-  width: 20%;
+  flex: 1;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.tab-bar-item .tab-image {
-  display: block;
-  width: 24px;
-  height: 24px;
-}
-
-.tab-bar-item .tab-text {
-  font-size: 10px;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  &.middle-item {
+    flex: none;
+    position: relative;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2);
+  }
+  .tab-image {
+    width: 24px;
+    height: 24px;
+  }
+  .middle-image {
+    width: 40px;
+    height: 40px;
+  }
+  .tab-text {
+    font-size: 10px;
+  }
 }
 </style>

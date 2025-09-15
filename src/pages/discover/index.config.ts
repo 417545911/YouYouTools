@@ -1,3 +1,3 @@
 export default {
-  navigatorBarTitleText: "发现"
+  navigationBarTitleText: "发现"
 }

@@ -1,3 +1,3 @@
 export default {
-  navigatorBarTitleText: "常用"
+  navigationBarTitleText: "常用",
 }

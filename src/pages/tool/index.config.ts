@@ -1,3 +1,3 @@
 export default {
-  navigatorBarTitleText: "工具"
+  navigationBarTitleText: "工具"
 }
